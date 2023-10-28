@@ -1,0 +1,9 @@
+---
+# This is a mix playbook
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: yes
+  roles:
+    - myroles

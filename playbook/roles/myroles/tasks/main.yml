@@ -1,0 +1,27 @@
+    - name: Install {{pakg}} service
+      action: yum pkg={{pakg}} state=present
+      notify: service
+
+    - name: Copy file from source to destination
+      action: copy src=/home/ansible/lion dest=/home/ansible/ mode=777
+
+    - name: Copy file from destination to destination
+      action: copy remote_src=yes src=/home/ansible/Giraffe dest=/tmp/ mode=755
+
+    - name: Unarchive file from source to destination
+      action: unarchive src=/home/ansible/tiger.tar dest=/tmp/ mode=444
+
+    - name: Create a file
+      action: file path=/home/ansible/hippo state=touch mode=555
+
+    - name: Copy content to a file
+      action: copy content='Hello World, I am Abhishek' dest=/home/ansible/intro mode=664
+
+    - name: create users
+      action: user name={{item}}
+      with_items:
+        - abc1
+        - def1
+        - ghi1
+
+
